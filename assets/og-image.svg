@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="50%" stop-color="#181818"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4a743"/>
+      <stop offset="100%" stop-color="#c9a84c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="220" cy="120" r="260" fill="#d4a743" opacity="0.08"/>
+  <rect x="80" y="80" width="220" height="52" rx="26" fill="none" stroke="#d4a743" stroke-opacity="0.4" stroke-width="2"/>
+  <text x="100" y="115" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#d4a743">ПРЕМИАЛЬНЫЙ ДЕТЕЙЛИНГ</text>
+  <text x="80" y="330" font-family="Arial, sans-serif" font-size="120" font-weight="800" letter-spacing="4" fill="url(#gold)">AUTOCLEAN</text>
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="34" fill="#c9c0a6">Полировка · Керамика · Защита кузова · Чистка салона</text>
+  <g transform="translate(80,450)" opacity="0.9">
+    <rect x="0" y="45" width="360" height="65" rx="18" fill="#2b2a25"/>
+    <path d="M45 45 L75 5 L285 5 L330 45 Z" fill="#2b2a25"/>
+    <circle cx="75" cy="115" r="26" fill="#141414"/>
+    <circle cx="285" cy="115" r="26" fill="#141414"/>
+    <circle cx="75" cy="115" r="10" fill="#d4a743"/>
+    <circle cx="285" cy="115" r="10" fill="#d4a743"/>
+  </g>
+</svg>
