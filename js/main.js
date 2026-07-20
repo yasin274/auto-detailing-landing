@@ -45,6 +45,46 @@ function animateTrustCounter() {
   requestAnimationFrame(step);
 }
 
+function initHeroSpotlight() {
+  const hero = document.querySelector('.hero');
+  const spotlight = hero ? hero.querySelector('.hero-spotlight') : null;
+  if (!hero || !spotlight) return;
+
+  const supportsFineHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!supportsFineHover) return;
+
+  let frameRequested = false;
+  let pointerX = 0;
+  let pointerY = 0;
+
+  const applyPosition = () => {
+    frameRequested = false;
+    spotlight.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0) translate(-50%, -50%)`;
+  };
+
+  hero.addEventListener('mouseenter', (event) => {
+    const rect = hero.getBoundingClientRect();
+    pointerX = event.clientX - rect.left;
+    pointerY = event.clientY - rect.top;
+    applyPosition();
+    spotlight.classList.add('show');
+  });
+
+  hero.addEventListener('mousemove', (event) => {
+    const rect = hero.getBoundingClientRect();
+    pointerX = event.clientX - rect.left;
+    pointerY = event.clientY - rect.top;
+    if (!frameRequested) {
+      frameRequested = true;
+      requestAnimationFrame(applyPosition);
+    }
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    spotlight.classList.remove('show');
+  });
+}
+
 function initFloatingCta() {
   const floatingCta = document.querySelector('.floating-cta');
   const heroSection = document.querySelector('.hero');
@@ -308,6 +348,7 @@ function initCompareSliders() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initRevealAnimations();
+  initHeroSpotlight();
   initFloatingCta();
   initMobileNav();
   initPhoneMask();

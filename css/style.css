@@ -198,6 +198,31 @@ header {
   pointer-events: none;
 }
 
+.hero-spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 167, 67, 0.9) 0%, rgba(212, 167, 67, 0) 70%);
+  filter: blur(50px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.12s ease-out;
+  will-change: transform;
+}
+
+.hero-spotlight.show {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-spotlight {
+    display: none;
+  }
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
