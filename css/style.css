@@ -202,26 +202,19 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  width: 350px;
-  height: 350px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 167, 67, 0.9) 0%, rgba(212, 167, 67, 0) 70%);
-  filter: blur(50px);
+  background: radial-gradient(circle, rgba(212, 167, 67, 0.5) 0%, rgba(212, 167, 67, 0) 70%);
+  filter: blur(40px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.12s ease-out;
+  transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
 
 .hero-spotlight.show {
   opacity: 1;
-}
-
-/* Reduced motion: keep the cursor-driven glow, drop the eased animation */
-@media (prefers-reduced-motion: reduce) {
-  .hero-spotlight {
-    transition: none;
-  }
 }
 
 .hero-content {
