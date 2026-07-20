@@ -202,14 +202,14 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  width: 260px;
-  height: 260px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 167, 67, 0.5) 0%, rgba(212, 167, 67, 0) 70%);
-  filter: blur(40px);
+  background: radial-gradient(circle, rgba(212, 167, 67, 0.6) 0%, rgba(212, 167, 67, 0) 70%);
+  filter: blur(16px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
 
