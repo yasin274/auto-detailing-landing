@@ -217,9 +217,10 @@ header {
   opacity: 1;
 }
 
+/* Reduced motion: keep the cursor-driven glow, drop the eased animation */
 @media (prefers-reduced-motion: reduce) {
   .hero-spotlight {
-    display: none;
+    transition: none;
   }
 }
 
