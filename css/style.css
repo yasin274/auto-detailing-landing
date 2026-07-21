@@ -209,7 +209,8 @@ header {
   filter: blur(34px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.06s linear;
+  /* No transform transition: the glow must sit on the cursor, not chase it */
+  transition: opacity 0.3s ease;
   will-change: transform;
 }
 
