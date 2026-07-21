@@ -202,11 +202,11 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  width: 58px;
-  height: 58px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(212, 167, 67, 0.38) 0%, rgba(212, 167, 67, 0) 70%);
-  filter: blur(13px);
+  filter: blur(17px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
