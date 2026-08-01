@@ -125,18 +125,30 @@ function initMobileNav() {
   const navLinks = document.getElementById('navLinks');
   if (!toggle || !navLinks) return;
 
+  /* Иконки кнопки — SVG, а не символы шрифта.
+     Раньше здесь стояли ☰ и ✕: их рисует шрифт системы, размер и толщина
+     линий гуляли от устройства к устройству, а на части Android они
+     подменялись квадратом. Меняем содержимое, а не сам элемент, чтобы не
+     терять обработчик и фокус. */
+  const ICON_OPEN =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" ' +
+    'stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+  const ICON_CLOSE =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" ' +
+    'stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
   const closeMenu = () => {
     navLinks.classList.remove('active');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Открыть меню');
-    toggle.textContent = '☰';
+    toggle.innerHTML = ICON_OPEN;
   };
 
   toggle.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('active');
     toggle.setAttribute('aria-expanded', String(isOpen));
     toggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
-    toggle.textContent = isOpen ? '✕' : '☰';
+    toggle.innerHTML = isOpen ? ICON_CLOSE : ICON_OPEN;
   });
 
   navLinks.querySelectorAll('a').forEach((link) => {
