@@ -338,14 +338,24 @@ function initCompareSliders() {
       setPosition(percentFromClientX(event.clientX));
     });
 
+    /* Клавиатура для role="slider".
+       Стрелки шагают по 5%, Home и End бросают шторку к краям — показать
+       «до» или «после» целиком одним нажатием. Без Home и End роль обещает
+       больше, чем умеет: экранный диктор объявляет ползунок, пользователь
+       жмёт End и не получает ничего. */
+    const STEP = 5;
+    const KEYS = {
+      ArrowLeft: () => currentPercent - STEP,
+      ArrowRight: () => currentPercent + STEP,
+      Home: () => 0,
+      End: () => 100,
+    };
+
     handle.addEventListener('keydown', (event) => {
-      if (event.key === 'ArrowLeft') {
-        setPosition(currentPercent - 5);
-        event.preventDefault();
-      } else if (event.key === 'ArrowRight') {
-        setPosition(currentPercent + 5);
-        event.preventDefault();
-      }
+      const next = KEYS[event.key];
+      if (!next) return;
+      setPosition(next());
+      event.preventDefault();
     });
 
     handle.setAttribute('tabindex', '0');
